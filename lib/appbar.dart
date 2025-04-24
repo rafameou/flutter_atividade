@@ -4,7 +4,7 @@ class CustomAppbar extends StatefulWidget implements PreferredSizeWidget {
   const CustomAppbar({super.key});
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight * 2);
 
   @override
   State<CustomAppbar> createState() => _CustomAppbarState();
@@ -61,7 +61,8 @@ class _CustomAppbarState extends State<CustomAppbar> {
         label: Text(label),
         icon: Icon(icon),
         style: TextButton.styleFrom(
-          padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+          padding: EdgeInsets.zero,
+          minimumSize: Size(0, kToolbarHeight),
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.zero),
           ),
