@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_atividade/feed_ui.dart';
+import 'package:flutter_atividade/ui/feed_ui.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      themeMode: ThemeMode.dark,
       home: const FeedPage(),
     );
   }
