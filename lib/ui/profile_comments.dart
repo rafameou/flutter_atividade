@@ -2,21 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_atividade/models/post.dart';
 import 'package:flutter_atividade/ui/appbar.dart';
 import 'package:flutter_atividade/ui/appbar_button.dart';
-import 'package:flutter_atividade/ui/jobs_ui.dart';
-import 'package:flutter_atividade/ui/login.dart';
+import 'package:flutter_atividade/ui/feed_ui.dart';
 import 'package:flutter_atividade/ui/notifications_ui.dart';
 import 'package:flutter_atividade/ui/post_ui.dart';
 import 'package:flutter_atividade/models/user.dart';
 import 'package:flutter_atividade/ui/profile_feed.dart';
+import 'package:flutter_atividade/ui/profile_jobs.dart';
+import 'package:flutter_atividade/ui/profile_settings.dart';
 
-class FeedPage extends StatefulWidget {
-  const FeedPage({super.key});
+class ProfilePageComments extends StatefulWidget {
+  const ProfilePageComments({super.key});
 
   @override
-  State<FeedPage> createState() => _FeedPageState();
+  State<ProfilePageComments> createState() => _ProfilePageCommentsState();
 }
 
-class _FeedPageState extends State<FeedPage> {
+class _ProfilePageCommentsState extends State<ProfilePageComments> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,47 +26,52 @@ class _FeedPageState extends State<FeedPage> {
           onPressed: () {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => ProfilePageFeed()),
+              MaterialPageRoute(builder: (context) => FeedPage()),
             );
           },
-          icon: ClipRRect(
-            borderRadius: BorderRadius.circular(0),
-            child: Icon(Icons.people), //Image.asset("avatar da pessoa"),
-          ),
+          icon: Icon(Icons.arrow_back),
         ),
-        centerText: Text("Feed"),
-        rightButton: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+        centerText: Text("Usuário"),
+        rightButton: IconButton(
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePageSettings()),
+            );
+          },
+          icon: Icon(Icons.settings),
+        ),
         bottomButtons: [
           CustomAppbarButton(
-            label: "Feed",
-            icon: Icons.feed,
-            selected: true,
+            label: "Seus Posts",
+            icon: Icons.post_add,
+            selected: false,
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => FeedPage()),
+                MaterialPageRoute(builder: (context) => ProfilePageFeed()),
               );
             },
           ),
           CustomAppbarButton(
-            label: "Vagas",
+            label: "Vagas Postadas",
             icon: Icons.work,
             selected: false,
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => JobsPage()),
+                MaterialPageRoute(builder: (context) => ProfilePageJobs()),
               );
             },
           ),
           CustomAppbarButton(
-            label: "Alertas",
-            icon: Icons.notifications,
-            selected: false,
+            label: "Comentários",
+            icon: Icons.comment,
+            selected: true,
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => NotificationsPage()),
+                MaterialPageRoute(builder: (context) => ProfilePageComments()),
               );
             },
           ),
@@ -76,11 +82,11 @@ class _FeedPageState extends State<FeedPage> {
           children: [
             CustomPost(
               post: Post(
-                user: User(name: "João", password: "123", profilePicture: ""),
+                user: User(name: "Você", password: "123", profilePicture: ""),
                 time: DateTime(2023),
-                title: "Abacate",
-                text: "Teste Teste Teste",
-                favorites: 200,
+                title: "b",
+                text: "c",
+                favorites: 0,
               ),
             ),
           ],

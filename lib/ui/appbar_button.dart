@@ -32,20 +32,10 @@ class _CustomAppbarButtonState extends State<CustomAppbarButton> {
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.zero),
           ),
-          /*backgroundColor:
-              (!selected
-                  ? Theme.of(context).colorScheme.inversePrimary
-                  : Theme.of(context).colorScheme.inverseSurface),
-          textStyle: TextStyle(
-            color:
-                (!selected
-                    ? Theme.of(context).colorScheme.inverseSurface
-                    : Theme.of(context).colorScheme.surfaceBright),
-          ),
-          iconColor:
-              (!selected
-                  ? Theme.of(context).colorScheme.inverseSurface
-                  : Theme.of(context).colorScheme.surfaceBright),*/
+          backgroundColor:
+              (!widget.selected
+                  ? Theme.of(context).colorScheme.surfaceContainer
+                  : Theme.of(context).colorScheme.surfaceContainerHigh),
         ),
       ),
     );

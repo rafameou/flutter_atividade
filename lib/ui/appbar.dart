@@ -24,6 +24,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       leading: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
@@ -44,6 +45,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
         ),
       ],
       bottom: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
         flexibleSpace: Row(children: widget.bottomButtons),
       ),

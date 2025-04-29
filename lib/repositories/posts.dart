@@ -17,7 +17,7 @@ class PostRepositoryMemory extends ChangeNotifier implements PostRepository {
   @override
   void addPost(Post post) {
     _posts.add(post);
-    notification = 'Produto inserido!';
+    notification = 'Post enviado!';
     notifyListeners();
   }
 }

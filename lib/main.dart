@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_atividade/ui/feed_ui.dart';
+import 'package:flutter_atividade/ui/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData(brightness: Brightness.dark),
       themeMode: ThemeMode.dark,
-      home: const FeedPage(),
+      home: const LoginPage(),
     );
   }
 }

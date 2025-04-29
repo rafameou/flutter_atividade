@@ -6,7 +6,7 @@ class Post {
   String text;
   String? image;
   int favorites;
-  List<Post>? comments;
+  List<Post>? comments = [];
   User user;
 
   Post({

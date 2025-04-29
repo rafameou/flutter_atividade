@@ -2,21 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_atividade/models/post.dart';
 import 'package:flutter_atividade/ui/appbar.dart';
 import 'package:flutter_atividade/ui/appbar_button.dart';
-import 'package:flutter_atividade/ui/jobs_ui.dart';
-import 'package:flutter_atividade/ui/login.dart';
 import 'package:flutter_atividade/ui/notifications_ui.dart';
 import 'package:flutter_atividade/ui/post_ui.dart';
+import 'package:flutter_atividade/ui/feed_ui.dart';
 import 'package:flutter_atividade/models/user.dart';
 import 'package:flutter_atividade/ui/profile_feed.dart';
 
-class FeedPage extends StatefulWidget {
-  const FeedPage({super.key});
+class JobsPage extends StatefulWidget {
+  const JobsPage({super.key});
 
   @override
-  State<FeedPage> createState() => _FeedPageState();
+  State<JobsPage> createState() => _JobsPageState();
 }
 
-class _FeedPageState extends State<FeedPage> {
+class _JobsPageState extends State<JobsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,13 +32,13 @@ class _FeedPageState extends State<FeedPage> {
             child: Icon(Icons.people), //Image.asset("avatar da pessoa"),
           ),
         ),
-        centerText: Text("Feed"),
+        centerText: Text("Vagas"),
         rightButton: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
         bottomButtons: [
           CustomAppbarButton(
             label: "Feed",
             icon: Icons.feed,
-            selected: true,
+            selected: false,
             onPressed: () {
               Navigator.pushReplacement(
                 context,
@@ -50,7 +49,7 @@ class _FeedPageState extends State<FeedPage> {
           CustomAppbarButton(
             label: "Vagas",
             icon: Icons.work,
-            selected: false,
+            selected: true,
             onPressed: () {
               Navigator.pushReplacement(
                 context,
@@ -78,9 +77,9 @@ class _FeedPageState extends State<FeedPage> {
               post: Post(
                 user: User(name: "João", password: "123", profilePicture: ""),
                 time: DateTime(2023),
-                title: "Abacate",
-                text: "Teste Teste Teste",
-                favorites: 200,
+                title: "uau emprego",
+                text: "requisitos: estar vivo\nClique aqui para emprego",
+                favorites: 100,
               ),
             ),
           ],
