@@ -14,13 +14,12 @@ Projeto está setado para Linux por padrão, lembre-se de mudar para android usa
 
 # BUGS
 
-N/A
+* DialogBox na tela de esqueceu a senha (forgot_password.dart) não funciona.
 
 # TODO
 
-* Feedback/Validações;
+* Feedback/Validações (Parcial?);
 * DB;
-* Tela de criar post/vaga;
 * Comentários;
     * Diferenciação entre posts comuns e comentários;
 * Melhorar tela de login;
@@ -28,4 +27,3 @@ N/A
     * Escolher um logo para o projeto;
     * Centralizar;
 * Menções?
-* Criar tela de cadastro.

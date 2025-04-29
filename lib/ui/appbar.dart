@@ -14,7 +14,7 @@ class CustomAppbar extends StatefulWidget implements PreferredSizeWidget {
   });
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight * 2);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight * 2); //2 barras
 
   @override
   State<CustomAppbar> createState() => _CustomAppbarState();
@@ -24,7 +24,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      automaticallyImplyLeading: false,
+      //automaticallyImplyLeading: false, //Remove a flechinha do push
       backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       leading: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
@@ -45,7 +45,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
         ),
       ],
       bottom: AppBar(
-        automaticallyImplyLeading: false,
+        //automaticallyImplyLeading: false, //Remove a flechinha do push
         backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
         flexibleSpace: Row(children: widget.bottomButtons),
       ),

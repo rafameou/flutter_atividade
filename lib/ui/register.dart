@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_atividade/ui/feed_ui.dart';
-import 'package:flutter_atividade/ui/forgot_password.dart';
-import 'package:flutter_atividade/ui/register.dart';
 //import 'package:flutter_atividade/models/user.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -23,7 +20,10 @@ class _LoginPageState extends State<LoginPage> {
           padding: EdgeInsets.all(20),
           child: Column(
             children: [
-              Padding(padding: EdgeInsets.all(10), child: Text("Bem-Vindo!")),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: Text("Crie sua conta!"),
+              ),
               Padding(
                 padding: EdgeInsets.all(10),
                 child: TextFormField(
@@ -35,6 +35,22 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Digite seu login/nome.";
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    label: Text("E-Mail"),
+                    hintText: "Digite seu correio eletrônico.",
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Digite seu E-Mail.";
                     }
                     return null;
                   },
@@ -57,6 +73,23 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    label: Text("Confirme sua senha."),
+                    hintText: "Confirme sua senha.",
+                  ),
+                  obscureText: true,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Verifique sua senha novamente.";
+                    }
+                    return null;
+                  },
+                ),
+              ),
               Column(
                 children: [
                   Row(
@@ -67,47 +100,21 @@ class _LoginPageState extends State<LoginPage> {
                             formKey.currentState!.save();
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text("Login realizado com sucesso!"),
+                                content: Text("Conta criada com sucesso!"),
                               ),
                             );
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => FeedPage(),
-                              ),
-                            );
+                            Navigator.pop(context);
                           }
                         },
-                        icon: Icon(Icons.login),
-                        label: Text("Logar"),
+                        icon: Icon(Icons.add),
+                        label: Text("Criar Conta"),
                       ),
                       TextButton.icon(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => RegisterPage(),
-                            ),
-                          );
+                          Navigator.pop(context);
                         },
-                        icon: Icon(Icons.app_registration),
-                        label: Text("Cadastrar"),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      TextButton.icon(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ForgotPasswordPage(),
-                            ),
-                          );
-                        },
-                        icon: Icon(Icons.password),
-                        label: Text("Esqueci minha senha"),
+                        icon: Icon(Icons.arrow_back),
+                        label: Text("Voltar"),
                       ),
                     ],
                   ),

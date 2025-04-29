@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_atividade/models/post.dart';
 import 'package:flutter_atividade/ui/appbar.dart';
 import 'package:flutter_atividade/ui/appbar_button.dart';
+import 'package:flutter_atividade/ui/create_post_feed.dart';
 import 'package:flutter_atividade/ui/jobs_ui.dart';
-import 'package:flutter_atividade/ui/login.dart';
 import 'package:flutter_atividade/ui/notifications_ui.dart';
 import 'package:flutter_atividade/ui/post_ui.dart';
 import 'package:flutter_atividade/models/user.dart';
@@ -34,7 +34,15 @@ class _FeedPageState extends State<FeedPage> {
           ),
         ),
         centerText: Text("Feed"),
-        rightButton: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+        rightButton: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CreatePostFeed()),
+            );
+          },
+          icon: Icon(Icons.add),
+        ),
         bottomButtons: [
           CustomAppbarButton(
             label: "Feed",

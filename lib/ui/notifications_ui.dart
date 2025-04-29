@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_atividade/models/post.dart';
 import 'package:flutter_atividade/ui/appbar.dart';
 import 'package:flutter_atividade/ui/appbar_button.dart';
-import 'package:flutter_atividade/ui/login.dart';
 import 'package:flutter_atividade/ui/post_ui.dart';
 import 'package:flutter_atividade/ui/feed_ui.dart';
 import 'package:flutter_atividade/ui/jobs_ui.dart';
@@ -34,7 +33,10 @@ class _NotificationsPageState extends State<NotificationsPage> {
           ),
         ),
         centerText: Text("Alertas"),
-        rightButton: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+        rightButton: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.notifications_off),
+        ),
         bottomButtons: [
           CustomAppbarButton(
             label: "Feed",

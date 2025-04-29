@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_atividade/models/post.dart';
 import 'package:flutter_atividade/ui/appbar.dart';
-import 'package:flutter_atividade/ui/appbar_button.dart';
-import 'package:flutter_atividade/ui/feed_ui.dart';
 import 'package:flutter_atividade/ui/login.dart';
-import 'package:flutter_atividade/ui/notifications_ui.dart';
-import 'package:flutter_atividade/ui/post_ui.dart';
-import 'package:flutter_atividade/models/user.dart';
-import 'package:flutter_atividade/ui/profile_comments.dart';
+//import 'package:flutter_atividade/models/user.dart';
 import 'package:flutter_atividade/ui/profile_feed.dart';
-import 'package:flutter_atividade/ui/profile_jobs.dart';
 
 class ProfilePageSettings extends StatefulWidget {
   const ProfilePageSettings({super.key});
@@ -36,6 +29,9 @@ class _ProfilePageSettingsState extends State<ProfilePageSettings> {
         rightButton: IconButton(
           icon: Icon(Icons.logout),
           onPressed: () {
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text("Até logo!")));
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => LoginPage()),
@@ -60,7 +56,17 @@ class _ProfilePageSettingsState extends State<ProfilePageSettings> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   label: Text("Nome"),
-                  hintText: "Digite algo para alterar seu nome",
+                  hintText: "Digite algo para alterar seu nome.",
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  label: Text("E-Mail"),
+                  hintText: "Digite algo para alterar seu correio eletrônico.",
                 ),
               ),
             ),
@@ -70,8 +76,9 @@ class _ProfilePageSettingsState extends State<ProfilePageSettings> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   label: Text("Senha"),
-                  hintText: "Digite algo para alterar sua senha",
+                  hintText: "Digite algo para alterar sua senha.",
                 ),
+                obscureText: true,
               ),
             ),
             Padding(
@@ -80,8 +87,9 @@ class _ProfilePageSettingsState extends State<ProfilePageSettings> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   label: Text("Confirme sua senha"),
-                  hintText: "Confirme sua senha novamente",
+                  hintText: "Confirme sua senha novamente.",
                 ),
+                obscureText: true,
               ),
             ),
           ],

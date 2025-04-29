@@ -3,7 +3,6 @@ import 'package:flutter_atividade/models/post.dart';
 import 'package:flutter_atividade/ui/appbar.dart';
 import 'package:flutter_atividade/ui/appbar_button.dart';
 import 'package:flutter_atividade/ui/feed_ui.dart';
-import 'package:flutter_atividade/ui/notifications_ui.dart';
 import 'package:flutter_atividade/ui/post_ui.dart';
 import 'package:flutter_atividade/models/user.dart';
 import 'package:flutter_atividade/ui/profile_feed.dart';
