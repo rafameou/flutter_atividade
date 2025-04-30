@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_atividade/models/post.dart';
-import 'package:flutter_atividade/ui/appbar.dart';
-import 'package:flutter_atividade/ui/appbar_button.dart';
-import 'package:flutter_atividade/ui/create_post_feed.dart';
-import 'package:flutter_atividade/ui/notifications_ui.dart';
-import 'package:flutter_atividade/ui/post_ui.dart';
-import 'package:flutter_atividade/ui/feed_ui.dart';
+import 'package:flutter_atividade/ui/widgets/appbar.dart';
+import 'package:flutter_atividade/ui/widgets/appbar_button.dart';
+import 'package:flutter_atividade/ui/widgets/post_ui.dart';
+import 'package:flutter_atividade/ui/screens/feed_ui.dart';
+import 'package:flutter_atividade/ui/screens/jobs_ui.dart';
 import 'package:flutter_atividade/models/user.dart';
-import 'package:flutter_atividade/ui/profile_feed.dart';
+import 'package:flutter_atividade/ui/screens/profile_feed.dart';
 
-class JobsPage extends StatefulWidget {
-  const JobsPage({super.key});
+class NotificationsPage extends StatefulWidget {
+  const NotificationsPage({super.key});
 
   @override
-  State<JobsPage> createState() => _JobsPageState();
+  State<NotificationsPage> createState() => _NotificationsPageState();
 }
 
-class _JobsPageState extends State<JobsPage> {
+class _NotificationsPageState extends State<NotificationsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +32,10 @@ class _JobsPageState extends State<JobsPage> {
             child: Icon(Icons.people), //Image.asset("avatar da pessoa"),
           ),
         ),
-        centerText: Text("Vagas"),
+        centerText: Text("Alertas"),
         rightButton: IconButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => CreatePostFeed()),
-            );
-          },
-          icon: Icon(Icons.add),
+          onPressed: () {},
+          icon: Icon(Icons.notifications_off),
         ),
         bottomButtons: [
           CustomAppbarButton(
@@ -58,7 +52,7 @@ class _JobsPageState extends State<JobsPage> {
           CustomAppbarButton(
             label: "Vagas",
             icon: Icons.work,
-            selected: true,
+            selected: false,
             onPressed: () {
               Navigator.pushReplacement(
                 context,
@@ -69,7 +63,7 @@ class _JobsPageState extends State<JobsPage> {
           CustomAppbarButton(
             label: "Alertas",
             icon: Icons.notifications,
-            selected: false,
+            selected: true,
             onPressed: () {
               Navigator.pushReplacement(
                 context,
@@ -84,11 +78,11 @@ class _JobsPageState extends State<JobsPage> {
           children: [
             CustomPost(
               post: Post(
-                user: User(name: "João", password: "123", profilePicture: ""),
+                user: User(name: "App", password: "123", profilePicture: ""),
                 time: DateTime(2023),
-                title: "uau emprego",
-                text: "requisitos: estar vivo\nClique aqui para emprego",
-                favorites: 100,
+                title: "Parabéns",
+                text: "10 likes",
+                favorites: 200,
               ),
             ),
           ],

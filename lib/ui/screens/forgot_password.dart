@@ -65,7 +65,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           if (formKey.currentState!.validate()) {
                             formKey.currentState!.save();
                             // #TODO não funciona
-                            () => showDialog<String>(
+                            showDialog(
                               context: context,
                               builder:
                                   (BuildContext context) => AlertDialog(
@@ -75,8 +75,12 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                     ),
                                     actions: <Widget>[
                                       TextButton(
-                                        onPressed:
-                                            () => Navigator.pop(context, 'OK'),
+                                        onPressed: () {
+                                          Navigator.pop(context); //Pop dialog
+                                          Navigator.pop(
+                                            context,
+                                          ); //Pop esqueceu senha
+                                        },
                                         child: const Text('OK'),
                                       ),
                                     ],

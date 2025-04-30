@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_atividade/models/post.dart';
-import 'package:flutter_atividade/ui/appbar.dart';
-import 'package:flutter_atividade/ui/appbar_button.dart';
-import 'package:flutter_atividade/ui/feed_ui.dart';
-import 'package:flutter_atividade/ui/post_ui.dart';
+import 'package:flutter_atividade/ui/widgets/appbar.dart';
+import 'package:flutter_atividade/ui/widgets/appbar_button.dart';
+import 'package:flutter_atividade/ui/screens/feed_ui.dart';
+import 'package:flutter_atividade/ui/widgets/post_ui.dart';
 import 'package:flutter_atividade/models/user.dart';
-import 'package:flutter_atividade/ui/profile_comments.dart';
-import 'package:flutter_atividade/ui/profile_jobs.dart';
-import 'package:flutter_atividade/ui/profile_settings.dart';
+import 'package:flutter_atividade/ui/screens/profile_feed.dart';
+import 'package:flutter_atividade/ui/screens/profile_jobs.dart';
+import 'package:flutter_atividade/ui/screens/profile_settings.dart';
 
-class ProfilePageFeed extends StatefulWidget {
-  const ProfilePageFeed({super.key});
+class ProfilePageComments extends StatefulWidget {
+  const ProfilePageComments({super.key});
 
   @override
-  State<ProfilePageFeed> createState() => _ProfilePageFeedState();
+  State<ProfilePageComments> createState() => _ProfilePageCommentsState();
 }
 
-class _ProfilePageFeedState extends State<ProfilePageFeed> {
+class _ProfilePageCommentsState extends State<ProfilePageComments> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +44,7 @@ class _ProfilePageFeedState extends State<ProfilePageFeed> {
           CustomAppbarButton(
             label: "Seus Posts",
             icon: Icons.post_add,
-            selected: true,
+            selected: false,
             onPressed: () {
               Navigator.pushReplacement(
                 context,
@@ -66,7 +66,7 @@ class _ProfilePageFeedState extends State<ProfilePageFeed> {
           CustomAppbarButton(
             label: "Comentários",
             icon: Icons.comment,
-            selected: false,
+            selected: true,
             onPressed: () {
               Navigator.pushReplacement(
                 context,
@@ -83,8 +83,8 @@ class _ProfilePageFeedState extends State<ProfilePageFeed> {
               post: Post(
                 user: User(name: "Você", password: "123", profilePicture: ""),
                 time: DateTime(2023),
-                title: "a",
-                text: "a",
+                title: "b",
+                text: "c",
                 favorites: 0,
               ),
             ),

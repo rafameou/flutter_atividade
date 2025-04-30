@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_atividade/models/post.dart';
-import 'package:flutter_atividade/ui/appbar.dart';
-import 'package:flutter_atividade/ui/appbar_button.dart';
-import 'package:flutter_atividade/ui/feed_ui.dart';
-import 'package:flutter_atividade/ui/post_ui.dart';
+import 'package:flutter_atividade/ui/widgets/appbar.dart';
+import 'package:flutter_atividade/ui/widgets/appbar_button.dart';
+import 'package:flutter_atividade/ui/screens/feed_ui.dart';
+import 'package:flutter_atividade/ui/widgets/post_ui.dart';
 import 'package:flutter_atividade/models/user.dart';
-import 'package:flutter_atividade/ui/profile_comments.dart';
-import 'package:flutter_atividade/ui/profile_feed.dart';
-import 'package:flutter_atividade/ui/profile_settings.dart';
+import 'package:flutter_atividade/ui/screens/profile_comments.dart';
+import 'package:flutter_atividade/ui/screens/profile_feed.dart';
+import 'package:flutter_atividade/ui/screens/profile_settings.dart';
 
 class ProfilePageJobs extends StatefulWidget {
   const ProfilePageJobs({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_atividade/ui/feed_ui.dart';
-import 'package:flutter_atividade/ui/forgot_password.dart';
-import 'package:flutter_atividade/ui/register.dart';
+import 'package:flutter_atividade/ui/screens/feed_ui.dart';
+import 'package:flutter_atividade/ui/screens/forgot_password.dart';
+import 'package:flutter_atividade/ui/screens/register.dart';
 //import 'package:flutter_atividade/models/user.dart';
 
 class LoginPage extends StatefulWidget {

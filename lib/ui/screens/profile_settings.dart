@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_atividade/ui/appbar.dart';
-import 'package:flutter_atividade/ui/login.dart';
+import 'package:flutter_atividade/ui/widgets/appbar.dart';
+import 'package:flutter_atividade/ui/screens/login.dart';
 //import 'package:flutter_atividade/models/user.dart';
-import 'package:flutter_atividade/ui/profile_feed.dart';
+import 'package:flutter_atividade/ui/screens/profile_feed.dart';
 
 class ProfilePageSettings extends StatefulWidget {
   const ProfilePageSettings({super.key});
