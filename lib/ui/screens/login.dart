@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_atividade/models/user.dart';
+import 'package:flutter_atividade/objectbox.g.dart';
 import 'package:flutter_atividade/ui/screens/feed_ui.dart';
 import 'package:flutter_atividade/ui/screens/forgot_password.dart';
 import 'package:flutter_atividade/ui/screens/register.dart';
 //import 'package:flutter_atividade/models/user.dart';
+import 'package:flutter_atividade/main.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,6 +16,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
+  final _userController = TextEditingController();
+  //final _passController = TextEditingController();
+  List<User> users = [];
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +38,13 @@ class _LoginPageState extends State<LoginPage> {
                     label: Text("Login"),
                     hintText: "Digite seu nome",
                   ),
+                  controller: _userController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Digite seu login/nome.";
+                    }
+                    if (users.isEmpty) {
+                      return "Esse usuário não está cadastrado.";
                     }
                     return null;
                   },
@@ -48,10 +58,14 @@ class _LoginPageState extends State<LoginPage> {
                     label: Text("Senha"),
                     hintText: "Digite sua senha",
                   ),
+                  //controller: _passController,
                   obscureText: true,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Digite sua senha.";
+                    }
+                    if (users[0].password != value) {
+                      return "Senha incorreta.";
                     }
                     return null;
                   },
@@ -63,13 +77,24 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       TextButton.icon(
                         onPressed: () {
+                          final query =
+                              userBox
+                                  .query(
+                                    User_.name.equals(_userController.text),
+                                  )
+                                  .build();
+
+                          users = query.find();
+
                           if (formKey.currentState!.validate()) {
                             formKey.currentState!.save();
+
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text("Login realizado com sucesso!"),
                               ),
                             );
+                            users = [];
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(

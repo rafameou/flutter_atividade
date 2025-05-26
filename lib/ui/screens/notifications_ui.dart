@@ -76,7 +76,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            CustomPost(
+            /* CustomPost(
               post: Post(
                 user: User(name: "App", password: "123", profilePicture: ""),
                 time: DateTime(2023),
@@ -84,7 +84,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
                 text: "10 likes",
                 favorites: 200,
               ),
-            ),
+            ), */
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.

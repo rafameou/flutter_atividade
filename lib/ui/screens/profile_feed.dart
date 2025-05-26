@@ -79,7 +79,7 @@ class _ProfilePageFeedState extends State<ProfilePageFeed> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            CustomPost(
+            /* CustomPost(
               post: Post(
                 user: User(name: "Você", password: "123", profilePicture: ""),
                 time: DateTime(2023),
@@ -87,7 +87,7 @@ class _ProfilePageFeedState extends State<ProfilePageFeed> {
                 text: "a",
                 favorites: 0,
               ),
-            ),
+            ), */
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.

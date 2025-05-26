@@ -82,7 +82,7 @@ class _JobsPageState extends State<JobsPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            CustomPost(
+            /* CustomPost(
               post: Post(
                 user: User(name: "João", password: "123", profilePicture: ""),
                 time: DateTime(2023),
@@ -90,7 +90,7 @@ class _JobsPageState extends State<JobsPage> {
                 text: "requisitos: estar vivo\nClique aqui para emprego",
                 favorites: 100,
               ),
-            ),
+            ), */
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.

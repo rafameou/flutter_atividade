@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_atividade/models/user.dart';
+import 'package:flutter_atividade/main.dart';
+import 'package:flutter_atividade/models/user.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -10,6 +12,9 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final formKey = GlobalKey<FormState>();
+  final _userController = TextEditingController();
+  final _passController = TextEditingController();
+  final _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +37,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     label: Text("Login"),
                     hintText: "Digite seu nome",
                   ),
+                  controller: _userController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Digite seu login/nome.";
@@ -48,6 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     label: Text("E-Mail"),
                     hintText: "Digite seu correio eletrônico.",
                   ),
+                  controller: _emailController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Digite seu E-Mail.";
@@ -64,6 +71,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     label: Text("Senha"),
                     hintText: "Digite sua senha",
                   ),
+                  controller: _passController,
                   obscureText: true,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -98,6 +106,15 @@ class _RegisterPageState extends State<RegisterPage> {
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
                             formKey.currentState!.save();
+
+                            final user = User(
+                              name: _userController.text,
+                              password: _passController.text,
+                              profilePicture: "",
+                            );
+
+                            userBox.put(user);
+
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text("Conta criada com sucesso!"),
