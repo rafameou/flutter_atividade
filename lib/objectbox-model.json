@@ -1,0 +1,120 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:5615278486343574019",
+      "lastPropertyId": "8:105440590001780642",
+      "name": "Post",
+      "properties": [
+        {
+          "id": "1:6883133795020918287",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:8099479341859343324",
+          "name": "time",
+          "type": 10
+        },
+        {
+          "id": "3:5017858297717077232",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "4:3954843406640317305",
+          "name": "text",
+          "type": 9
+        },
+        {
+          "id": "5:2806779437078031470",
+          "name": "image",
+          "type": 9
+        },
+        {
+          "id": "6:1887379303104564569",
+          "name": "favorites",
+          "type": 6
+        },
+        {
+          "id": "7:1778513318569524827",
+          "name": "userId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "2:2447916959769386065",
+          "relationTarget": "User"
+        },
+        {
+          "id": "8:105440590001780642",
+          "name": "vaga",
+          "type": 1
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:3666265614051319153",
+          "name": "comments",
+          "targetId": "1:5615278486343574019"
+        }
+      ]
+    },
+    {
+      "id": "2:6642526009498390053",
+      "lastPropertyId": "5:5919833295532526247",
+      "name": "User",
+      "properties": [
+        {
+          "id": "1:76954978785973572",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:8349543860111960100",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:734317660995210634",
+          "name": "password",
+          "type": 9
+        },
+        {
+          "id": "4:6530363204498889932",
+          "name": "profilePicture",
+          "type": 9
+        }
+      ],
+      "relations": [
+        {
+          "id": "2:2089485398000816244",
+          "name": "post",
+          "targetId": "1:5615278486343574019"
+        },
+        {
+          "id": "3:3687251440929884215",
+          "name": "vagas",
+          "targetId": "1:5615278486343574019"
+        }
+      ]
+    }
+  ],
+  "lastEntityId": "2:6642526009498390053",
+  "lastIndexId": "2:2447916959769386065",
+  "lastRelationId": "3:3687251440929884215",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [
+    5850637367347217579
+  ],
+  "retiredPropertyUids": [
+    5919833295532526247
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}
