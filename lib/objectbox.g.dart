@@ -23,7 +23,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
     id: const obx_int.IdUid(1, 5615278486343574019),
     name: 'Post',
-    lastPropertyId: const obx_int.IdUid(8, 105440590001780642),
+    lastPropertyId: const obx_int.IdUid(9, 7195063670984817831),
     flags: 0,
     properties: <obx_int.ModelProperty>[
       obx_int.ModelProperty(
@@ -73,6 +73,12 @@ final _entities = <obx_int.ModelEntity>[
       obx_int.ModelProperty(
         id: const obx_int.IdUid(8, 105440590001780642),
         name: 'vaga',
+        type: 1,
+        flags: 0,
+      ),
+      obx_int.ModelProperty(
+        id: const obx_int.IdUid(9, 7195063670984817831),
+        name: 'comment',
         type: 1,
         flags: 0,
       ),
@@ -201,7 +207,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
         final imageOffset = object.image == null
             ? null
             : fbb.writeString(object.image!);
-        fbb.startTable(9);
+        fbb.startTable(10);
         fbb.addInt64(0, object.id);
         fbb.addInt64(1, object.time.millisecondsSinceEpoch);
         fbb.addOffset(2, titleOffset);
@@ -210,6 +216,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
         fbb.addInt64(5, object.favorites);
         fbb.addInt64(6, object.user.targetId);
         fbb.addBool(7, object.vaga);
+        fbb.addBool(8, object.comment);
         fbb.finish(fbb.endTable());
         return object.id;
       },
@@ -231,6 +238,12 @@ obx_int.ModelDefinition getObjectBoxModel() {
           18,
           false,
         );
+        final commentParam = const fb.BoolReader().vTableGet(
+          buffer,
+          rootOffset,
+          20,
+          false,
+        );
         final imageParam = const fb.StringReader(
           asciiOptimization: true,
         ).vTableGetNullable(buffer, rootOffset, 12);
@@ -245,6 +258,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           title: titleParam,
           text: textParam,
           vaga: vagaParam,
+          comment: commentParam,
           image: imageParam,
           favorites: favoritesParam,
         )..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
@@ -355,6 +369,11 @@ class Post_ {
   /// See [Post.vaga].
   static final vaga = obx.QueryBooleanProperty<Post>(
     _entities[0].properties[7],
+  );
+
+  /// See [Post.comment].
+  static final comment = obx.QueryBooleanProperty<Post>(
+    _entities[0].properties[8],
   );
 
   /// see [Post.comments]

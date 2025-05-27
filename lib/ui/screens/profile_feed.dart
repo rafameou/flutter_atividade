@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_atividade/main.dart';
 import 'package:flutter_atividade/models/post.dart';
 import 'package:flutter_atividade/ui/widgets/appbar.dart';
 import 'package:flutter_atividade/ui/widgets/appbar_button.dart';
@@ -30,7 +31,7 @@ class _ProfilePageFeedState extends State<ProfilePageFeed> {
           },
           icon: Icon(Icons.arrow_back),
         ),
-        centerText: Text("Usuário"),
+        centerText: Text(theUser.name),
         rightButton: IconButton(
           onPressed: () {
             Navigator.pushReplacement(
@@ -78,17 +79,17 @@ class _ProfilePageFeedState extends State<ProfilePageFeed> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            /* CustomPost(
-              post: Post(
-                user: User(name: "Você", password: "123", profilePicture: ""),
-                time: DateTime(2023),
-                title: "a",
-                text: "a",
-                favorites: 0,
-              ),
-            ), */
-          ],
+          children:
+              postBox
+                  .getAll()
+                  .where(
+                    (post) =>
+                        !post.comment &&
+                        !post.vaga &&
+                        post.user.target?.name == theUser.name,
+                  )
+                  .map((post) => CustomPost(post: post))
+                  .toList(),
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

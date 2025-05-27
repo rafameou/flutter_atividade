@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_atividade/main.dart';
 //import 'package:flutter_atividade/models/user.dart';
 import 'package:flutter_atividade/models/post.dart';
 
 class CreatePostFeed extends StatefulWidget {
-  const CreatePostFeed({super.key});
+  final bool isThisVaga;
+  const CreatePostFeed({super.key, required this.isThisVaga});
 
   @override
   State<CreatePostFeed> createState() => _CreatePostFeedState();
@@ -11,6 +13,8 @@ class CreatePostFeed extends StatefulWidget {
 
 class _CreatePostFeedState extends State<CreatePostFeed> {
   final formKey = GlobalKey<FormState>();
+  final _titleController = TextEditingController();
+  final _textController = TextEditingController();
   String? title;
   String? text;
   String? image;
@@ -32,6 +36,7 @@ class _CreatePostFeedState extends State<CreatePostFeed> {
                     label: Text("Título"),
                     hintText: "Digite um título legal para seu post!",
                   ),
+                  controller: _titleController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Digite um título.";
@@ -53,6 +58,7 @@ class _CreatePostFeedState extends State<CreatePostFeed> {
                   ),
                   minLines: 10,
                   maxLines: 20,
+                  controller: _textController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Digite um corpo de texto.";
@@ -72,7 +78,20 @@ class _CreatePostFeedState extends State<CreatePostFeed> {
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           formKey.currentState!.save();
-                          //Post novoPost = Post(title, text, user, mimimi);
+
+                          Post novoPost = Post(
+                            title: _titleController.text,
+                            text: _textController.text,
+                            time: DateTime.now(),
+                            vaga: widget.isThisVaga,
+                            comment: false,
+                            favorites: 0,
+                          );
+
+                          novoPost.user.target = theUser;
+
+                          postBox.put(novoPost);
+
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(content: Text("Post publicado!")),
                           );

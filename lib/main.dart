@@ -8,13 +8,12 @@ import 'objectbox.dart';
 late ObjectBox objectbox;
 late Box<User> userBox;
 late Box<Post> postBox;
-late Box<Post> vagasBox;
+late User theUser;
 
 void main() async {
   objectbox = await ObjectBox.create();
   userBox = objectbox.store.box<User>();
   postBox = objectbox.store.box<Post>();
-  vagasBox = objectbox.store.box<Post>();
 
   runApp(const MyApp());
 }

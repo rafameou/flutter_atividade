@@ -10,16 +10,16 @@ class Post {
   String? image;
   int favorites;
   bool vaga;
-  /*   List<Post>? comments = [];
-  User user; */
-  final user = ToOne<User>();
-  final comments = ToMany<Post>();
+  bool comment;
+  final user = ToOne<User>(); // CHECAR #TODO
+  final comments = ToMany<Post>(); // CHECAR #TODO
 
   Post({
     required this.time,
     required this.title,
     required this.text,
     required this.vaga,
+    required this.comment,
     this.image,
     required this.favorites,
   });

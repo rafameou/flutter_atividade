@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_atividade/main.dart';
 import 'package:flutter_atividade/models/post.dart';
 import 'package:flutter_atividade/ui/widgets/appbar.dart';
 import 'package:flutter_atividade/ui/widgets/appbar_button.dart';
@@ -38,7 +39,9 @@ class _FeedPageState extends State<FeedPage> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => CreatePostFeed()),
+              MaterialPageRoute(
+                builder: (context) => CreatePostFeed(isThisVaga: false),
+              ),
             );
           },
           icon: Icon(Icons.add),
@@ -81,17 +84,12 @@ class _FeedPageState extends State<FeedPage> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            /*             CustomPost(
-              post: Post(
-                user: User(name: "João", password: "123", profilePicture: ""),
-                time: DateTime(2023),
-                title: "Abacate",
-                text: "Teste Teste Teste",
-                favorites: 200,
-              ),
-            ), */
-          ],
+          children:
+              postBox
+                  .getAll()
+                  .where((post) => !post.vaga)
+                  .map((post) => CustomPost(post: post))
+                  .toList(),
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

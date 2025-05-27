@@ -25,7 +25,7 @@ class _CustomPostState extends State<CustomPost> {
                   Icons.cookie,
                 ), //Image.asset(widget.post.user.profilePicture),
               ),
-              label: Text("Placeholder"), //Text(widget.post.user.name),
+              label: Text(widget.post.user.target?.name ?? "N/A"),
             ),
             //Text(widget.post.user.name),
             Spacer(),

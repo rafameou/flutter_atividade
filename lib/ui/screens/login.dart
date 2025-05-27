@@ -67,6 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                     if (users[0].password != value) {
                       return "Senha incorreta.";
                     }
+                    theUser = users[0];
                     return null;
                   },
                 ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_atividade/main.dart';
+import 'package:flutter_atividade/models/user.dart';
 import 'package:flutter_atividade/ui/widgets/appbar.dart';
 import 'package:flutter_atividade/ui/screens/login.dart';
 //import 'package:flutter_atividade/models/user.dart';
@@ -29,6 +31,8 @@ class _ProfilePageSettingsState extends State<ProfilePageSettings> {
         rightButton: IconButton(
           icon: Icon(Icons.logout),
           onPressed: () {
+            //delete theUser
+            theUser = User(name: "", password: "", profilePicture: "");
             ScaffoldMessenger.of(
               context,
             ).showSnackBar(SnackBar(content: Text("Até logo!")));
