@@ -64,6 +64,9 @@ class _LoginPageState extends State<LoginPage> {
                     if (value == null || value.isEmpty) {
                       return "Digite sua senha.";
                     }
+                    if (users.isEmpty) {
+                      return "Cheque sua conexão com a internet.";
+                    }
                     if (users[0].password != value) {
                       return "Senha incorreta.";
                     }

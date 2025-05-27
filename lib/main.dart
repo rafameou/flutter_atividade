@@ -11,6 +11,7 @@ late Box<Post> postBox;
 late User theUser;
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   objectbox = await ObjectBox.create();
   userBox = objectbox.store.box<User>();
   postBox = objectbox.store.box<Post>();
