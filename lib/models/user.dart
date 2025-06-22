@@ -6,7 +6,7 @@ class User {
   int id = 0;
   final String name;
   final String password;
-  final String profilePicture;
+  String profilePicture = "";
   //final List<Post>? post;
   final post = ToMany<Post>();
   final vagas = ToMany<Post>();

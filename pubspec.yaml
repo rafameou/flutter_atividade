@@ -36,6 +36,11 @@ dependencies:
   cupertino_icons: ^1.0.8
   objectbox: ^4.2.0
   objectbox_flutter_libs: any
+  camera: ^0.11.1
+  path_provider: ^2.1.5
+  path: ^1.9.1
+  deepl_dart: ^2.0.0
+  envied: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -47,8 +52,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
-  build_runner: ^2.4.15
+  build_runner: ^2.5.3
   objectbox_generator: any
+  envied_generator: ^1.1.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

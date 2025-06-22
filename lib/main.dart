@@ -3,18 +3,26 @@ import 'package:flutter_atividade/models/post.dart';
 import 'package:flutter_atividade/models/user.dart';
 import 'package:flutter_atividade/objectbox.g.dart';
 import 'package:flutter_atividade/ui/screens/login.dart';
-import 'objectbox.dart';
+import 'objectbox/objectbox.dart';
+import 'env/env.dart';
+import 'package:camera/camera.dart';
+import 'dart:io' show Platform;
 
 late ObjectBox objectbox;
 late Box<User> userBox;
 late Box<Post> postBox;
 late User theUser;
+late CameraDescription camera;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   objectbox = await ObjectBox.create();
   userBox = objectbox.store.box<User>();
   postBox = objectbox.store.box<Post>();
+  if (Platform.isAndroid) {
+    final cameras = await availableCameras();
+    camera = cameras.last;
+  }
 
   runApp(const MyApp());
 }

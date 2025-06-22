@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_atividade/main.dart';
 import 'package:flutter_atividade/models/user.dart';
@@ -5,6 +7,7 @@ import 'package:flutter_atividade/ui/widgets/appbar.dart';
 import 'package:flutter_atividade/ui/screens/login.dart';
 //import 'package:flutter_atividade/models/user.dart';
 import 'package:flutter_atividade/ui/screens/profile_feed.dart';
+import 'package:flutter_atividade/ui/screens/camera_ui.dart';
 
 class ProfilePageSettings extends StatefulWidget {
   const ProfilePageSettings({super.key});
@@ -49,8 +52,16 @@ class _ProfilePageSettingsState extends State<ProfilePageSettings> {
           children: [
             Center(
               child: IconButton(
-                icon: Icon(Icons.person),
-                onPressed: () {},
+                icon:
+                    theUser.profilePicture != ""
+                        ? Image.file(File(theUser.profilePicture))
+                        : Icon(Icons.person),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CameraPage()),
+                  );
+                },
                 iconSize: 200,
               ),
             ),

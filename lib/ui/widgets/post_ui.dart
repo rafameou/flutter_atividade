@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_atividade/env/env.dart';
 import 'package:flutter_atividade/models/post.dart';
+import 'package:deepl_dart/deepl_dart.dart';
 
 class CustomPost extends StatefulWidget {
   final Post post;
@@ -10,6 +12,16 @@ class CustomPost extends StatefulWidget {
 }
 
 class _CustomPostState extends State<CustomPost> {
+  String postTitle = "";
+  String postText = "";
+
+  @override
+  void initState() {
+    super.initState();
+    postTitle = widget.post.title;
+    postText = widget.post.text;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -38,7 +50,7 @@ class _CustomPostState extends State<CustomPost> {
         //Divider(),
         ListTile(
           title: Text(
-            widget.post.title,
+            postTitle,
             style: TextStyle(
               color: Colors.white,
               fontSize: 18.0,
@@ -48,7 +60,7 @@ class _CustomPostState extends State<CustomPost> {
           subtitle: Container(
             padding: EdgeInsets.only(top: 5.0),
             child: Text(
-              widget.post.text,
+              postText,
               style: TextStyle(color: Colors.white, fontSize: 15.0),
             ),
           ),
@@ -66,6 +78,24 @@ class _CustomPostState extends State<CustomPost> {
               onPressed: () {},
               icon: Icon(Icons.comment),
               label: Text('${widget.post.comments?.length ?? 0} Comentários'),
+            ),
+            IconButton(
+              onPressed: () async {
+                DeepL deepl = DeepL(authKey: Env.deeplApi);
+                TextResult post = await deepl.translate.translateText(
+                  widget.post.text,
+                  'pt-BR',
+                );
+                TextResult title = await deepl.translate.translateText(
+                  widget.post.title,
+                  'pt-BR',
+                );
+                setState(() {
+                  postTitle = title.text;
+                  postText = post.text;
+                });
+              },
+              icon: Icon(Icons.translate),
             ),
             //Text('${widget.post.comments?.length ?? 0} Comentários'),
             //IconButton(onPressed: () {}, icon: Icon(Icons.help)),

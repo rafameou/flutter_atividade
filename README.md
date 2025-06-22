@@ -10,6 +10,8 @@ Clone de aplicativo estilo Linkedin.
 
 # Instalação
 
+Crie um arquivo `.env` (no mesmo lugar onde este README está) com `DEEPL_API=..."`, após isso rode `dart run build_runner build` para construir a database e .env
+
 Projeto está setado para Linux por padrão, lembre-se de mudar para android usando `flutter devices` e depois execute com `flutter run`.
 
 Database fica guardado na pasta de documentos.
